@@ -1,0 +1,9 @@
+Through adapting, we realized that we could have abstracted code a lot more. Definitely numerous
+classes that existed that could existed first as interfaces. Even if it's not minimizing code
+duplication, interfacing code is super helpful for future design choices. This goes for things like
+our Grid or our players (which we did interface). Similarly, we didn't have a controller interface,
+as our providers did. Jumping in immediately with the class definitely made adapting controllers
+harder.
+
+Provider Feedback:
+Our providers were helpful in returning our questions in a timely manner.

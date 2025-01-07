@@ -1,0 +1,37 @@
+
+  Design Critique
+    The new interfaces provided for the Three Trios game, such as ThreeTriosGUIView and
+  ViewListener, are designed to facilitate a clear separation of concerns between the view and
+  controller components. This design choice enhances modularity, allowing different views to be
+  integrated with the same underlying game logic. The interfaces are flexible enough to support
+  various implementations, which is beneficial for extending or replacing components without
+  disrupting the entire system.
+  Separating Players into HumanPlayer and MachinePlayer may be useful, that way we don't have to
+  keep machinePlayer behavior in humanPlayers
+  ViewListener and TriosController share the same methods: can use click listener to abstract or
+  even just implement the interfaces within each other
+
+  Implementation Critique
+    The implementation of these interfaces in the adapter classes was straightforward, thanks to
+  their well-defined methods. However, some challenges arose due to differences in how events are
+  handled in the existing code compared to the new interfaces. For instance, integrating methods
+  like playerChanged() and invalidMove() required careful consideration of how these events are
+  processed within the existing ThreeTriosGameView. The adapter pattern effectively bridged these
+  differences, demonstrating its utility in integrating disparate systems.
+
+  Documentation Critique
+    The documentation provided with the new interfaces was generally clear and concise, outlining the
+  purpose and expected behavior of each method. This clarity was crucial in understanding how to
+  adapt existing code to align with the new design. However, additional context on how these
+  interfaces interact with other components would have been helpful, particularly for methods like
+  addInteractionListener, which involves multiple layers of interaction between the view and
+  controller.
+
+  Design/Code Limitations and Suggestions
+     One limitation observed was the lack of direct support for some specific interactions in the new
+  interfaces, such as handling game-over scenarios or turn switches without creating new methods.
+  This required creative use of existing methods like showMessage to convey state changes to users.
+  To address this, future iterations could include more comprehensive event handling capabilities
+  within the interfaces themselves, reducing reliance on workarounds. Additionally, providing
+  examples or guidelines on integrating these interfaces with typical game architectures could
+  streamline the adaptation.
